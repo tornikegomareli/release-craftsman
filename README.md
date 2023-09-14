@@ -96,7 +96,7 @@ brew install releasecraftsman
 
 ### From Compiled Binary
 
-Compiled binaries are also available for download from the [Releases](https://github.com/tornikegomareli/releasecraftsman/releases) section on GitHub.
+Compiled binaries are also available for download from the [Releases](https://github.com/tornikegomareli/release-craftsman/releases) section on GitHub.
 
 ## Usage
 
