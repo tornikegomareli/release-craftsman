@@ -15,8 +15,8 @@ use include_dir::{include_dir, Dir};
 use chat_gpt_lib_rs::{ChatGPTClient, ChatInput, Message, Model, Role};
 
 fn parse_args() -> (GitLogFormat, Option<String>, Option<String>, String, Model, Option<String>) {
-    let matches = App::new("ReleaseCraftman")
-        .version("1.0")
+    let matches = App::new("releasecraftsman")
+        .version("0.1.1")
         .arg(
             Arg::with_name("format")
                 .short("f")
