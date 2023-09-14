@@ -4,18 +4,19 @@
 
 ReleaseCraftsman is a Rust CLI tool designed to fetch, format and generate beautiful release notes with different types of options with
 git commit logs between specified tags or up to the latest commit. 
+
 This tool aims to make the release process easier and more standardized by automating the extraction of relevant git log information.
 
 ## Table of Contents
 - [Features](#features)
+- [Usage](#usage)
+  - [Options](#options)
 - [Installation](#installation)
   - [From Source](#from-source)
   - [With Cargo](#with-cargo)
   - [With Makefile](#with-makefile)
   - [With Homebrew](#with-homebrew)
   - [From Compiled Binary](#from-compiled-binary)
-- [Usage](#usage)
-  - [Options](#options)
 - [Contributing](#contributing)
 - [License](#license)
 - [Author](#author)
@@ -36,6 +37,52 @@ This tool aims to make the release process easier and more standardized by autom
 - [ ] Create different file formats, with generated content for example: Markdown, JSON
 - [ ] Custom prompts
 - [ ] CLI prompts, interactivity
+
+## Usage
+
+Once installed, you can run `releasecraftsman` from the terminal to start fetching and formatting git logs with GPT
+Below are the available options and commands.
+
+### Generate release notes, with compacted git logs with specific version, commit logs from last tag to recent commit using GPT4
+```bash
+releasecraftsman -f compact -s v1.0.0 -k API_KEY -m Gpt_4 -v1.0.1 
+```
+
+You can customize it and use *GPT_3_5Turbo* model, you need to use your own, or companies API_KEY.
+
+  
+#### Options
+#### 1. Default Compact Format
+
+This will run the program using the default 'compact' format for git logs for latest 5 commit logs
+
+```bash
+releasecraftsman
+```
+
+#### 2. Specify a Format
+Choose between 'compact' and 'hard' formats for the git logs.
+```bash
+releasecraftsman -f hard
+```
+#### 3. Specify Start and End Tags
+Fetch git logs between specified start and end tags.
+
+```bash
+releasecraftsman -s v1.0 -e v1.2
+```
+This will defaultly formats in compact mode, if you want hard format
+
+```bash
+releasecraftsman -f hard -s v1.0 -e v1.2
+```
+
+#### 4. Specify Start Tag Only
+Fetch git logs from the specified start tag to the latest commit.
+
+```bash
+releasecraftsman -s v1.0
+```
 
 ## Installation
 
@@ -103,43 +150,6 @@ Also it will be soon on popular package managers for different OS's, its not onl
 ### From Compiled Binary
 
 Compiled binaries are also available for download from the [Releases](https://github.com/tornikegomareli/release-craftsman/releases) section on GitHub.
-
-## Usage
-
-Once installed, you can run `releasecraftsman` from the terminal to start fetching and formatting git logs with GPT
-Below are the available options and commands.
-
-#### 1. Default Compact Format
-
-This will run the program using the default 'compact' format for git logs for latest 5 commit logs
-
-```bash
-releasecraftsman
-```
-
-#### 2. Specify a Format
-Choose between 'compact' and 'hard' formats for the git logs.
-```bash
-releasecraftsman -f hard
-```
-#### 3. Specify Start and End Tags
-Fetch git logs between specified start and end tags.
-
-```bash
-releasecraftsman -s v1.0 -e v1.2
-```
-This will defaultly formats in compact mode, if you want hard format
-
-```bash
-releasecraftsman -f hard -s v1.0 -e v1.2
-```
-
-#### 4. Specify Start Tag Only
-Fetch git logs from the specified start tag to the latest commit.
-
-```bash
-releasecraftsman -s v1.0
-```
 
 ## Contributing
 
