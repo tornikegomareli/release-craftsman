@@ -191,7 +191,3 @@ We welcome contributions of all types. Here are some ways you can contribute:
 ### Feedback and Questions
 
 For any questions or feedback, please open an issue on GitHub. 
-
-## License
-
-Information about the license...
