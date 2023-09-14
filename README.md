@@ -1,11 +1,9 @@
 # ReleaseCraftsman 🛠
 
-![Screenshot 2023-09-15 at 01 48 13](https://github.com/tornikegomareli/release-craftsman/assets/24585160/82125dd2-8611-4797-8ef7-7f3d72b8288c)
+![ReleaseCraftsman Screenshot](https://github.com/tornikegomareli/release-craftsman/assets/screenshot.png)
 
-ReleaseCraftsman is a Rust CLI tool designed to fetch, format and generate beautiful release notes with different types of options with
-git commit logs between specified tags or up to the latest commit. 
+ReleaseCraftsman is a Rust-powered CLI tool designed to simplify and streamline the release note creation process. It fetches, formats, and beautifies release notes using git commit logs. The notes can be generated between specified tags or up to the latest commit. This utility leverages advanced language models like GPT-3.5 and GPT-4 to make your release notes more insightful and engaging.
 
-This tool aims to make the release process easier and more standardized by automating the extraction of relevant git log information.
 
 ## Table of Contents
 - [Features](#features)
@@ -21,11 +19,12 @@ This tool aims to make the release process easier and more standardized by autom
 - [TODO](#todo)
 
 ## Features
-* Generate Beautiful Release notes with GPT3.5 and GPT4 Models
-* Fetch git commit logs in either compact or full format
-* Specify commit logs between two tags
-* Specify commit logs from last tag to current date
-* Easily integratable into CI/CD pipelines
+
+- Generate well-crafted release notes using GPT-3.5 and GPT-4 models
+- Fetch git commit logs in various formats (`compact`, `full`)
+- Filter commit logs between two specified tags
+- Filter commit logs from the last tag to the current date
+- Seamlessly integrates with CI/CD pipelines
 
 ## TODO
 
@@ -41,14 +40,13 @@ This tool aims to make the release process easier and more standardized by autom
 Once installed, you can run `releasecraftsman` from the terminal to start fetching and formatting git logs with GPT
 Below are the available options and commands.
 
-### Generate release notes, with compacted git logs with specific version, commit logs from last tag to recent commit using GPT4
+This current commant crafts release notes, with specific version and logs from last tag to recent commit, using GPT4 model.
 ```bash
 releasecraftsman -f compact -s v1.0.0 -k API_KEY -m Gpt_4 -v1.0.1 
 ```
 
-You can customize it and use *GPT_3_5Turbo* model, you need to use your own, or companies API_KEY.
+You can customize it and use *GPT_3_5Turbo*, you need to use your own, or companies API_KEY.
 
-  
 #### Options
 #### 1. Default Compact Format
 
@@ -90,9 +88,8 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/tornikegomareli/releasecraftsman.git
+cd releasecraftsma
 ```
-
-Navigate into the project directory and compile.
 
 #### With Cargo
 
@@ -100,26 +97,13 @@ To compile and install using Cargo, ensure you have [Cargo installed](https://do
 
 Then run the following commands:
 ```bash
-cd releasecraftsman
 cargo build --release
-```
-
-After building, you'll find the executable in the `target/release` directory. You'll need to include this in your PATH in your `.zshrc` or `.bashrc` file:
-
-```bash
-export PATH=$PATH:/path/to/target/release
-```
-Reload your shell or run 
-
-```bash
-source ~/.zshrc
-```
-or
-
-```bash
+# Add to PATH
+echo 'export PATH=$PATH:/path/to/target/release' >> ~/.bashrc
 source ~/.bashrc
 ```
-for bash users, to update your PATH.
+
+After building, you'll find the executable in the `target/release` directory. You'll need to include this in your PATH in your `.zshrc` or `.bashrc` file
 
 #### With Makefile
 
@@ -142,7 +126,7 @@ brew tap tornikegomareli/homebrew-releasecraftsman
 brew install releasecraftsman
 ```
 
-Currently releasecraftsman is not on official homebrew, but soon will be.
+Currently releasecraftsman is not on official homebrew, thats why it usess my own tap, but soon will be there.
 Also it will be soon on popular package managers for different OS's, its not only designed for mac.
 
 ### From Compiled Binary
