@@ -1,4 +1,4 @@
-# ReleaseCraftsman 🛠
+# `$ releasecraftsman ` 🛠
 
 ![Screenshot 2023-09-15 at 02 08 27](https://github.com/tornikegomareli/release-craftsman/assets/24585160/fa9250fd-18b4-4d3b-971a-a7ccac629466)
 
