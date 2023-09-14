@@ -74,7 +74,7 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/tornikegomareli/releasecraftsman.git
-cd releasecraftsma
+cd releasecraftsman
 ```
 
 #### With Cargo
