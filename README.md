@@ -1,6 +1,7 @@
 # ReleaseCraftsman 🛠
 
-![ReleaseCraftsman Screenshot](https://github.com/tornikegomareli/release-craftsman/assets/screenshot.png)
+![Screenshot 2023-09-15 at 02 08 27](https://github.com/tornikegomareli/release-craftsman/assets/24585160/fa9250fd-18b4-4d3b-971a-a7ccac629466)
+
 
 ReleaseCraftsman is a Rust-powered CLI tool designed to simplify and streamline the release note creation process. It fetches, formats, and beautifies release notes using git commit logs. The notes can be generated between specified tags or up to the latest commit. This utility leverages advanced language models like GPT-3.5 and GPT-4 to make your release notes more insightful and engaging.
 
