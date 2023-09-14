@@ -115,10 +115,10 @@ releasecraftsman
 Choose between 'compact' and 'hard' formats for the git logs.
 ```bash
 releasecraftsman -f hard
+releasecraftsman -f compact
 # OR
 releasecraftsman --format=hard
-# OR
-releasecraftsman --format hard
+releasecraftsman --format compact
 ```
 #### 3. Specify Start and End Tags
 Fetch git logs between specified start and end tags.
