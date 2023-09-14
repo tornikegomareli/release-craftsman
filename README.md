@@ -28,10 +28,11 @@ This tool aims to make the release process easier and more standardized by autom
 
 ## TODO
 
-- [ ] ChatGPT integration for generating release notes in different file formats
-- [ ] Predefined prompts
+- [x] ChatGPT integration for generating release notes
+- [x] Predefined prompts
+- [x] Better error handling
+- [ ] Create different file formats, with generated content for example: Markdown, JSON
 - [ ] Custom prompts
-- [ ] Better error handling
 - [ ] CLI prompts, interactivity
 
 ## Installation
@@ -94,18 +95,23 @@ brew tap tornikegomareli/homebrew-releasecraftsman
 brew install releasecraftsman
 ```
 
+Currently releasecraftsman is not on official homebrew, but soon will be.
+Also it will be soon on popular package managers for different OS's, its not only designed for mac.
+
 ### From Compiled Binary
 
 Compiled binaries are also available for download from the [Releases](https://github.com/tornikegomareli/release-craftsman/releases) section on GitHub.
 
 ## Usage
 
-Once installed, you can run `releasecraftsman` from the terminal to start fetching and formatting git logs. 
+Once installed, you can run `releasecraftsman` from the terminal to start fetching and formatting git logs with GPT
 Below are the available options and commands.
+
+![Screenshot 2023-09-15 at 01 35 11](https://github.com/tornikegomareli/release-craftsman/assets/24585160/d4fa084a-a25c-4a46-ac84-a920311d253e)
 
 #### 1. Default Compact Format
 
-This will run the program using the default 'compact' format for git logs
+This will run the program using the default 'compact' format for git logs for latest 5 commit logs
 
 ```bash
 releasecraftsman
@@ -115,25 +121,17 @@ releasecraftsman
 Choose between 'compact' and 'hard' formats for the git logs.
 ```bash
 releasecraftsman -f hard
-releasecraftsman -f compact
-# OR
-releasecraftsman --format=hard
-releasecraftsman --format compact
 ```
 #### 3. Specify Start and End Tags
 Fetch git logs between specified start and end tags.
 
 ```bash
 releasecraftsman -s v1.0 -e v1.2
-# OR
-releasecraftsman --start=v1.0 --end=v1.2
 ```
 This will defaultly formats in compact mode, if you want hard format
 
 ```bash
 releasecraftsman -f hard -s v1.0 -e v1.2
-# OR
-releasecraftsman --format hard --start=v1.0 --end=v1.2
 ```
 
 #### 4. Specify Start Tag Only
@@ -141,8 +139,6 @@ Fetch git logs from the specified start tag to the latest commit.
 
 ```bash
 releasecraftsman -s v1.0
-# OR
-releasecraftsman --start=v1.0
 ```
 
 ## Contributing
