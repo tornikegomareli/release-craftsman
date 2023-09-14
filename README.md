@@ -4,20 +4,7 @@
 
 Automate Your Release Notes with Precision and Ease.
 
-## Table of Contents
-- [Features](#features)
-- [Usage](#usage)
-  - [Options](#options)
-- [Installation](#installation)
-  - [From Source](#from-source)
-  - [With Cargo](#with-cargo)
-  - [With Makefile](#with-makefile)
-  - [With Homebrew](#with-homebrew)
-  - [From Compiled Binary](#from-compiled-binary)
-- [Contributing](#contributing)
-- [TODO](#todo)
-
-## Features
+## 🎁 Features
 
 - Generate well-crafted release notes using GPT-3.5 and GPT-4 models
 - Fetch git commit logs in various formats (`compact`, `full`)
@@ -25,7 +12,7 @@ Automate Your Release Notes with Precision and Ease.
 - Filter commit logs from the last tag to the current date
 - Seamlessly integrates with CI/CD pipelines
 
-## TODO
+## 🏗️ TODO
 
 - [x] ChatGPT integration for generating release notes
 - [x] Predefined prompts
@@ -34,7 +21,7 @@ Automate Your Release Notes with Precision and Ease.
 - [ ] Custom prompts
 - [ ] CLI prompts, interactivity
 
-## Usage
+## ⛑️ Usage
 
 Once installed, you can run `releasecraftsman` from the terminal to start fetching and formatting git logs with GPT
 Below are the available options and commands.
@@ -79,7 +66,7 @@ Fetch git logs from the specified start tag to the latest commit.
 releasecraftsman -s v1.0
 ```
 
-## Installation
+## ☁️ Installation
 
 ### From Source
 
@@ -147,7 +134,7 @@ We welcome contributions of all types. Here are some ways you can contribute:
 - Code Quality: Improvements to the codebase, like optimizations or even simple clean-ups, are always appreciated.
 - Documentation: Enhancements to the README or in-code documentation are fantastic and extremely helpful.
 
-### How to Contribute
+### 🧑‍🤝‍🧑 How to Contribute
 
 1. **Fork the Repository**: Start by forking the [ReleaseCraftsman repository](https://github.com/tornikegomareli/releasecraftsman).
 
@@ -175,6 +162,6 @@ We welcome contributions of all types. Here are some ways you can contribute:
 
 6. **Create a Pull Request**: Navigate to your repository on GitHub and click on "New Pull Request" to submit your changes for review.
 
-### Feedback and Questions
+### ❓ Feedback and Questions
 
 For any questions or feedback, please open an issue on GitHub. 
