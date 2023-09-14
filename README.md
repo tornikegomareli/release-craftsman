@@ -1,5 +1,7 @@
 # ReleaseCraftsman 🛠
 
+![Screenshot 2023-09-15 at 01 48 13](https://github.com/tornikegomareli/release-craftsman/assets/24585160/82125dd2-8611-4797-8ef7-7f3d72b8288c)
+
 ReleaseCraftsman is a Rust CLI tool designed to fetch, format and generate beautiful release notes with different types of options with
 git commit logs between specified tags or up to the latest commit. 
 This tool aims to make the release process easier and more standardized by automating the extraction of relevant git log information.
@@ -106,8 +108,6 @@ Compiled binaries are also available for download from the [Releases](https://gi
 
 Once installed, you can run `releasecraftsman` from the terminal to start fetching and formatting git logs with GPT
 Below are the available options and commands.
-
-![Screenshot 2023-09-15 at 01 35 11](https://github.com/tornikegomareli/release-craftsman/assets/24585160/d4fa084a-a25c-4a46-ac84-a920311d253e)
 
 #### 1. Default Compact Format
 
