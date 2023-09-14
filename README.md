@@ -18,8 +18,6 @@ This tool aims to make the release process easier and more standardized by autom
   - [With Homebrew](#with-homebrew)
   - [From Compiled Binary](#from-compiled-binary)
 - [Contributing](#contributing)
-- [License](#license)
-- [Author](#author)
 - [TODO](#todo)
 
 ## Features
