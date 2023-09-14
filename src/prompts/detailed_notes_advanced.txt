@@ -1,0 +1,9 @@
+Please create a detailed release note for version &VERSION& incorporating the following commit logs.
+
+Each section of the release note should include information about the author and the date of the commit.
+Additionally, provide detailed explanations for each commit where applicable.
+The note should be organized into categories such as "New Features", "Improvements", and "Bug Fixes", and use Markdown format.
+
+Here are the commit logs with associated author names and dates:
+
+&COMMIT_LOGS&
