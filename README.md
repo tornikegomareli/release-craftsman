@@ -21,6 +21,7 @@ Automate Your Release Notes with Precision and Ease.
 - [ ] Spinner, activity indicator or some funny activity in terminal, while GPT is generating relese notes
 - [ ] Custom prompts
 - [ ] CLI prompts, interactivity
+- [ ] Able to craft release notes by branch
 
 ## ⛑️ Usage
 
