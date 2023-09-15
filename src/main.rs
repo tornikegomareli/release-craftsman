@@ -13,8 +13,9 @@ use std::str;
 use include_dir::{include_dir, Dir};
 
 use chat_gpt_lib_rs::{ChatGPTClient, ChatInput, Message, Model, Role};
+use clap::Format::Error;
 
-fn parse_args() -> (GitLogFormat, Option<String>, Option<String>, String, Model, Option<String>) {
+fn parse_args() -> (GitLogFormat, Option<String>, Option<String>, Option<String>, Model, Option<String>) {
     let matches = App::new("releasecraftsman")
         .version("0.1.1")
         .arg(
@@ -43,7 +44,6 @@ fn parse_args() -> (GitLogFormat, Option<String>, Option<String>, String, Model,
                 .short("k")
                 .long("key")
                 .takes_value(true)
-                .required(true)
                 .help("API Key for GPT"),
         )
         .arg(
@@ -72,7 +72,7 @@ fn parse_args() -> (GitLogFormat, Option<String>, Option<String>, String, Model,
     let start_tag = matches.value_of("start_tag").map(|s| s.to_string());
     let end_tag = matches.value_of("end_tag").map(|e| e.to_string());
 
-    let api_key = matches.value_of("api_key").unwrap().to_string();
+    let api_key = matches.value_of("api_key").map(|s| s.to_string());
     let model = match matches.value_of("model").unwrap() {
         "Gpt_4" => Model::Gpt_4,
         "Gpt_3_5Turbo" => Model::Gpt3_5Turbo,
@@ -160,12 +160,12 @@ async fn main() -> Result<()> {
     // Output the final prompt
     println!("Final Prompt: {}", final_prompt);
 
-    let base_url = "https://api.openai.com";
-    let client = ChatGPTClient::new(&api_key, base_url);
 
-
-    let gpt_response = run_chat_gpt(&api_key, model, &final_prompt).await?;
-    println!("GPT response {}", gpt_response);
+    if let Some(api_key) = api_key {
+        let base_url = "https://api.openai.com";
+        let gpt_response = run_chat_gpt(&api_key, model, &final_prompt).await?;
+        println!("GPT response {}", gpt_response);
+    }
 
     Ok(())
 }
@@ -173,17 +173,18 @@ async fn main() -> Result<()> {
 async fn run_chat_gpt(api_key: &str, model: Model, message: &str) -> Result<String> {
     let base_url = "https://api.openai.com";
     let client = ChatGPTClient::new(api_key, base_url);
-
     let chat_input = ChatInput { model, messages: vec![
-            Message {
-                role: Role::System,
-                content: "You are a helpful assistant.".to_string(),
-            },
-            Message {
-                role: Role::User,
-                content: message.to_string(),
-            },
-        ], ..Default::default() };
+        Message {
+            role: Role::System,
+            content: "You are a helpful assistant.".to_string(),
+        },
+        Message {
+            role: Role::User,
+            content: message.to_string(),
+        },
+    ],
+        ..Default::default()
+    };
 
     let response = client.chat(chat_input).await.unwrap();
     Ok(response.choices[0].message.content.clone())
