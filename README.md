@@ -20,7 +20,8 @@ Automate Your Release Notes with Precision and Ease.
 - [ ] Create different file formats, with generated content for example: Markdown, JSON
 - [ ] Spinner, activity indicator or some funny activity in terminal, while GPT is generating relese notes
 - [ ] Custom prompts
-- [ ] CLI prompts, interactivity
+- [ ] CLI prompts,
+- [ ] Interactivity, step by step asking user to input data. 
 - [ ] Able to craft release notes by branch
 
 ## ⛑️ Usage
