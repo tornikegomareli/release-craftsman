@@ -86,10 +86,9 @@ fn parse_args() -> (GitLogFormat, Option<String>, Option<String>, Option<String>
 
 fn get_repo_path() -> Result<String> {
     let repo_path = if cfg!(debug_assertions) {
-        println!("Running in debug mode");
+        println!("### Running Debug mode ### ");
         String::from("/Users/tornike-mac/Development/Composable2048")
     } else {
-        println!("Running in release mode");
         let current_dir = env::current_dir()?;
         current_dir.to_str().unwrap().to_string()
     };
