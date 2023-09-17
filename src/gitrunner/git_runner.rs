@@ -1,11 +1,22 @@
 use std::env;
 use std::process::Command;
 use crate::git_log_format::GitLogFormat;
-use std::io::Result;
+use crate::gitrunner::git_runner_error::GitRunnerError;
+
 pub struct GitRunner {}
 
 impl GitRunner {
-    pub fn get_repo_path() -> Result<String> {
+    pub fn get_repo_path() -> Result<String, GitRunnerError> {
+        let is_git_repo = Command::new("git")
+            .args(&["rev-parse", "--is-inside-work-tree"])
+            .output()
+            .map(|o| o.status.success())
+            .unwrap_or(false);
+
+        if !is_git_repo {
+            return Err(GitRunnerError::NotAGitRepository);
+        }
+
         let repo_path = if cfg!(debug_assertions) {
             println!("### Running Debug mode ### ");
             String::from("/Users/tornike-mac/Development/Composable2048")
@@ -22,7 +33,7 @@ impl GitRunner {
         repo_path: &String,
         start_tag: &Option<String>,
         end_tag: &Option<String>,
-    ) -> Result<String> {
+    ) -> Result<String, GitRunnerError> {
         let mut command = Command::new("git");
         command.arg("log").arg(format.to_git_arg());
 
@@ -36,8 +47,7 @@ impl GitRunner {
 
         let output = command.current_dir(repo_path).output()?;
 
-        let output_str = String::from_utf8(output.stdout)
-            .map_err(|e| std::io::Error::new(std::io::ErrorKind::InvalidData, e))?;
+        let output_str = String::from_utf8(output.stdout)?;
 
         Ok(output_str)
     }

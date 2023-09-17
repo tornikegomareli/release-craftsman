@@ -6,10 +6,12 @@ mod gptrunner;
 
 use filereader::file_reader::{FileReader, PromptType};
 use argparser::arg_parser::ArgParser;
-use std::io::Result;
 use std::str;
 use gitrunner::git_runner::GitRunner;
 use gptrunner::gpt_runner::ChatGptRunner;
+use std::process;
+
+use crate::gitrunner::git_runner_error::GitRunnerError;
 
 
 fn print_commits(commits: Vec<&str>) {
@@ -19,15 +21,27 @@ fn print_commits(commits: Vec<&str>) {
 }
 
 #[tokio::main]
-async fn main() -> Result<()> {
+async fn main() -> Result<(), GitRunnerError> {
     // Parsing command line arguments and getting repo path
     let (log_format, start_tag, end_tag, api_key, model, version) = ArgParser::parse_args();
-    let repo_path = GitRunner::get_repo_path()?;
+    let mut output_str: String = String::new();
+    match GitRunner::get_repo_path() {
+        Ok(repo_path) => {
+            // Continue with your logic
+            let repo_path = GitRunner::get_repo_path()?;
 
-    println!("Executing git log command in directory: {}", repo_path);
+            println!("Executing git log command in directory: {}", repo_path);
 
-    // Fetching git logs
-    let output_str = GitRunner::execute_git_log(&log_format, &repo_path, &start_tag, &end_tag)?;
+            // Fetching git logs
+            output_str = GitRunner::execute_git_log(&log_format, &repo_path, &start_tag, &end_tag)?;
+        },
+        Err(err) => {
+            eprintln!("👷🏻‍ An error occurred ❌: {}", err);
+            process::exit(1);
+        }
+    }
+
+
     let commits: Vec<&str> = output_str.lines().collect();
 
     // Print commit logs (For debugging)
