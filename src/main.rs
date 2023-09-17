@@ -27,7 +27,6 @@ async fn main() -> Result<(), GitRunnerError> {
     let mut output_str: String = String::new();
     match GitRunner::get_repo_path() {
         Ok(repo_path) => {
-            // Continue with your logic
             let repo_path = GitRunner::get_repo_path()?;
 
             println!("Executing git log command in directory: {}", repo_path);
@@ -48,7 +47,7 @@ async fn main() -> Result<(), GitRunnerError> {
     print_commits(commits.clone());
 
     let fr = FileReader::new();
-    let version_str = version.unwrap_or_else(|| "1.0.0".to_string()); // Replace with your real version if available
+    let version_str = version.unwrap_or_else(|| "1.0.0".to_string());
 
 
     // Convert commit logs Vec<&str> to a single String
