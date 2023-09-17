@@ -3,9 +3,6 @@ use std::fs::File;
 use std::io::{self, BufRead, BufReader};
 use std::path::Path;
 use include_dir::{include_dir, Dir};
-
-const PROMPTS_DIR: Dir = include_dir!("src/prompts");
-
 pub enum PromptType {
     GeneralMarkdown,
     GeneralJSON,
@@ -35,6 +32,7 @@ impl FileReader {
         version: &str,
         commit_logs: &str,
     ) -> io::Result<String> {
+        const PROMPTS_DIR: Dir = include_dir!("src/prompts");
         let file = PROMPTS_DIR
             .get_file(prompt_type.file_name())
             .ok_or(io::Error::new(io::ErrorKind::NotFound, "File not found"))?;
