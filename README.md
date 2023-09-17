@@ -102,10 +102,24 @@ So you need to follow above steps.
 
 ```bash
 cd releasecraftsman
-make
+make build
+```
+It will compile and build
+
+```bash
+cd releasecraftsman
+make install
 ```
 
-This will move the `releasecraftsman` executable to `/usr/local/bin`. You can modify the Makefile to place it in a different location if you prefer.
+It will move executable to /user/local/bin
+
+```bash
+cd releasecraftsman
+make all
+```
+
+It will do both above commands in order
+You can change release/debug variable inside makefile
 
 ### With Homebrew
 
