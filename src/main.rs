@@ -3,8 +3,9 @@ mod filereader;
 mod git_log_format;
 mod gitrunner;
 mod gptrunner;
+mod command_line_model;
+mod interactivity;
 
-use std::fmt::format;
 use std::fs::OpenOptions;
 use argparser::arg_parser::ArgParser;
 use filereader::file_reader::{FileReader, PromptType};
@@ -14,9 +15,11 @@ use std::process;
 use std::str;
 use std::path::Path;
 use std::io::Write;
+use std::env;
 use colored::*;
 
 use crate::gitrunner::git_runner_error::GitRunnerError;
+use crate::interactivity::interactive::Interactive;
 
 fn print_commits(commits: Vec<&str>) {
     for (_i, commit) in commits.iter().enumerate() {
@@ -38,10 +41,29 @@ fn get_unique_filename(base: &str, extension: &str) -> String {
 
 #[tokio::main]
 async fn main() -> Result<(), GitRunnerError> {
-    // Parsing command line arguments and getting repo path
-    let (log_format, start_tag, end_tag, api_key, model, version) = ArgParser::parse_args();
+    let args: Vec<String> = env::args().collect();
+    let args_provided = args.len() > 1;
+
+    let (log_format, start_tag, end_tag, api_key, model, version) = if args_provided {
+        ArgParser::parse_args()
+    } else {
+        let mut interactive = Interactive::new();
+        interactive.run();
+        let model = interactive.cmd_model;
+
+        (
+            model.log_format,
+            model.start_tag,
+            None,
+            model.api_key,
+            model.gpt_model,
+            model.version
+        )
+    };
+
     let mut output_str: String = String::new();
     let mut git_repo_path: String = String::new();
+
     match GitRunner::get_repo_path() {
         Ok(repo_path) => {
             println!("Executing git log command in directory: {}", repo_path);
@@ -71,7 +93,6 @@ async fn main() -> Result<(), GitRunnerError> {
     println!("Final Prompt: {}", final_prompt);
 
     if let Some(api_key) = api_key {
-        let base_url = "https://api.openai.com";
         let gpt_response = ChatGptRunner::run_chat_gpt(&api_key, model, &final_prompt).await?;
         println!("GPT response {}", gpt_response);
 
