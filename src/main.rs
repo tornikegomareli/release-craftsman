@@ -6,7 +6,6 @@ mod gptrunner;
 mod command_line_model;
 mod interactivity;
 
-use std::fmt::format;
 use std::fs::OpenOptions;
 use argparser::arg_parser::ArgParser;
 use filereader::file_reader::{FileReader, PromptType};
@@ -18,10 +17,7 @@ use std::path::Path;
 use std::io::Write;
 use std::env;
 use colored::*;
-use chat_gpt_lib_rs::models::Model;
-use inquire::{Select, Text};
 
-use crate::git_log_format::GitLogFormat;
 use crate::gitrunner::git_runner_error::GitRunnerError;
 use crate::interactivity::interactive::Interactive;
 
@@ -97,7 +93,6 @@ async fn main() -> Result<(), GitRunnerError> {
     println!("Final Prompt: {}", final_prompt);
 
     if let Some(api_key) = api_key {
-        let base_url = "https://api.openai.com";
         let gpt_response = ChatGptRunner::run_chat_gpt(&api_key, model, &final_prompt).await?;
         println!("GPT response {}", gpt_response);
 
