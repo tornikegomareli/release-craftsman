@@ -1,8 +1,8 @@
+use include_dir::{include_dir, Dir};
 use std::env;
 use std::fs::File;
 use std::io::{self, BufRead, BufReader};
 use std::path::Path;
-use include_dir::{include_dir, Dir};
 pub enum PromptType {
     GeneralMarkdown,
     GeneralJSON,
