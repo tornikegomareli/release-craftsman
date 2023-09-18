@@ -5,7 +5,6 @@ use std::io::{self, BufRead, BufReader};
 use std::path::Path;
 pub enum PromptType {
     GeneralMarkdown,
-    GeneralJSON,
     Detailed,
 }
 
@@ -13,7 +12,6 @@ impl PromptType {
     fn file_name(&self) -> &'static str {
         match self {
             PromptType::GeneralMarkdown => "general_release_notes_markdown.txt",
-            PromptType::GeneralJSON => "general_release_notes_json.txt",
             PromptType::Detailed => "detailed_release_notes.txt",
         }
     }

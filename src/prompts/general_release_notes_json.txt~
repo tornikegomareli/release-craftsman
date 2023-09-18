@@ -1,4 +1,4 @@
-Based on the commit logs provided, please produce a general release note for version &VERSION&.
+Based on the commit logs provided, please produce a general release note for version """VERSION""".
 
 Capture summaries of changes, new features, and bug fixes.
 
@@ -6,4 +6,4 @@ The output should be in JSON format and include keys like "NewFeatures", "Improv
 
 Here are the commit logs for this version:
 
-&COMMIT_LOGS&
+"""COMMIT_LOGS"""
