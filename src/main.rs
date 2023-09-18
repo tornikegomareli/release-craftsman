@@ -26,10 +26,7 @@ async fn main() -> Result<(), GitRunnerError> {
     let mut output_str: String = String::new();
     match GitRunner::get_repo_path() {
         Ok(repo_path) => {
-            let repo_path = GitRunner::get_repo_path()?;
-
             println!("Executing git log command in directory: {}", repo_path);
-
             // Fetching git logs
             output_str = GitRunner::execute_git_log(&log_format, &repo_path, &start_tag, &end_tag)?;
         }
