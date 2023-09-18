@@ -1,9 +1,16 @@
-use clap::{App, Arg};
-use chat_gpt_lib_rs::{Model};
 use crate::git_log_format::GitLogFormat;
+use chat_gpt_lib_rs::Model;
+use clap::{App, Arg};
 pub struct ArgParser {}
 impl ArgParser {
-    pub fn parse_args() -> (GitLogFormat, Option<String>, Option<String>, Option<String>, Model, Option<String>) {
+    pub fn parse_args() -> (
+        GitLogFormat,
+        Option<String>,
+        Option<String>,
+        Option<String>,
+        Model,
+        Option<String>,
+    ) {
         let matches = App::new("releasecraftsman")
             .version("0.1.1")
             .arg(
@@ -47,7 +54,7 @@ impl ArgParser {
                     .short("v")
                     .long("version")
                     .takes_value(true)
-                    .help("Version of the release")
+                    .help("Version of the release"),
             )
             .get_matches();
 

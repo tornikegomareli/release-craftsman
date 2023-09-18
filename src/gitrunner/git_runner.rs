@@ -1,7 +1,7 @@
-use std::env;
-use std::process::Command;
 use crate::git_log_format::GitLogFormat;
 use crate::gitrunner::git_runner_error::GitRunnerError;
+use std::env;
+use std::process::Command;
 
 pub struct GitRunner {}
 
