@@ -94,9 +94,8 @@ async fn main() -> Result<(), GitRunnerError> {
 
     if let Some(api_key) = api_key {
         let gpt_response = ChatGptRunner::run_chat_gpt(&api_key, model, &final_prompt).await?;
-        println!("GPT response {}", gpt_response);
 
-        let unique_filename_for_changelog = get_unique_filename("CHANGELOG", ".md");
+        let unique_filename_for_changelog = get_unique_filename("RELEASE_NOTE", ".md");
         let mut file = OpenOptions::new()
             .write(true)
             .create_new(true)

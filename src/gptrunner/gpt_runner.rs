@@ -27,7 +27,7 @@ impl ChatGptRunner {
 
         let mut spinner = Spinner::new(
             spinners::Moon,
-            "Generating release notes... Please wait a while",
+            "👷🏻‍⚒️ Generating release notes... Please wait a while",
             Color::Red,
         );
         let response = client.chat(chat_input).await.unwrap();

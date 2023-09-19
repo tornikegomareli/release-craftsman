@@ -2,7 +2,7 @@ use crate::git_log_format::GitLogFormat;
 use crate::command_line_model::CommandLineModel;
 
 use chat_gpt_lib_rs::models::Model;
-use inquire::{Select, Text};
+use inquire::{Select, Text, Password, PasswordDisplayMode};
 use std::process;
 use log::log;
 
@@ -34,7 +34,9 @@ impl Interactive {
             _ => process::exit(1),
         };
 
-        let api_key = Text::new("OpenAI API KEY: ")
+        let api_key = Password::new("OpenAI API KEY: ")
+            .with_display_mode(PasswordDisplayMode::Masked)
+            .without_confirmation()
             .with_help_message("To use ChatGPT, enter your OpenAI API_KEY https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key")
             .prompt();
 
