@@ -27,10 +27,13 @@ Automate Your Release Process with Precision and Ease.
 
 ## ⛑️ Usage
 
-Once installed, you can run `releasecraftsman` from the terminal to start fetching and formatting git logs with GPT
-Below are the available options and commands.
+Once installed, you can run `releasecraftsman` from the terminal to start generating release notes.
 
-This current commant crafts release notes, with specific version and logs from last tag to recent commit, using GPT4 model.
+`releasecraftsman` will ask you couple of questions based on your need, then it will generate and create markdown file for you.
+
+If you want to run it with single command without prompts, below are available options and commands.
+
+This current command crafts release notes, with specific version from last tag to recent commit, using GPT4 model.
 ```bash
 releasecraftsman -f compact -s v1.0.0 -k API_KEY -m Gpt_4 -v1.0.1 
 ```
@@ -57,14 +60,15 @@ Fetch git logs between specified start and end tags.
 ```bash
 releasecraftsman -s v1.0 -e v1.2
 ```
-This will defaultly formats in compact mode, if you want hard format
+
+This will defaultly uses compact mode, if you want hard format
 
 ```bash
 releasecraftsman -f hard -s v1.0 -e v1.2
 ```
 
 #### 4. Specify Start Tag Only
-Fetch git logs from the specified start tag to the latest commit.
+From Specified start tag to the latest commit.
 
 ```bash
 releasecraftsman -s v1.0
