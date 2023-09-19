@@ -1,7 +1,11 @@
 Given the provided commit logs, please generate a general release note for version &VERSION&.
 
-Summarize the changes, features, and bug fixes that have been introduced in this version.
+Summarize the changes that have been introduced in this version.
 
-The release note should be organized into sections such as "New Features", "Improvements", and "Bug Fixes". Use Markdown format for the release note. The commit logs for this version are as follows:
+The release note should be organized into logical sections, based on commit logs.
+
+Use Markdown format for the release note.
+
+The commit logs for this version are as follows:
 
 &COMMIT_LOGS&
