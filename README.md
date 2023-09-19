@@ -1,6 +1,6 @@
 # `$ releasecraftsman ` 👷🏻‍♂️🛠
 
-![Screenshot 2023-09-15 at 02 08 27](https://github.com/tornikegomareli/release-craftsman/assets/24585160/fa9250fd-18b4-4d3b-971a-a7ccac629466)
+![render1695156361444](https://github.com/tornikegomareli/release-craftsman/assets/24585160/e8d8772f-abb4-4f20-a209-0216fa2ca58c)
 
 Automate Your Release Process with Precision and Ease.
 
@@ -11,6 +11,8 @@ Automate Your Release Process with Precision and Ease.
 - Filter commit logs between two specified tags
 - Filter commit logs from the last tag to the current date
 - Seamlessly integrates with CI/CD pipelines
+
+🦄 Prompts can be improved much more
 
 ## 🏗️ TODO
 
