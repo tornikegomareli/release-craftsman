@@ -1,10 +1,27 @@
 Given the provided commit logs, please generate a general release note for version &VERSION&.
 
-Summarize the changes that have been introduced in this version.
+Categorize into enhancements, features, and bug fixes that have been introduced in this version.
 
-The release note should be organized into logical sections, based on commit logs.
+Don't lose any commits, each commit log should have each own category.
+If there is no commit log for any given categorize from above, you can skip that category at all.
 
 Use Markdown format for the release note.
+
+Do not change and do not replace commit logs. Keep it original.
+
+If you can't categorize commit non into features, or bug fixes, put it into enhancements category.
+Be simple, and real.
+
+Response Example:
+
+If ticket has ticket number, formatting example will be like that
+
+###
+Category
+Ticket_Number: Commit message
+###
+
+That's all, don't add your message or personal communication texts.
 
 The commit logs for this version are as follows:
 

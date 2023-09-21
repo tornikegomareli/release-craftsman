@@ -104,7 +104,7 @@ async fn main() -> Result<(), GitRunnerError> {
         match writeln!(file, "{}", gpt_response) {
             Ok(_) => {
                 let msg = format!(
-                    "Change log created at: {}",
+                    "Release notes created at: {}",
                     git_repo_path
                 );
 
